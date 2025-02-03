@@ -2,12 +2,13 @@
     "compilerOptions": {
         "target": "es6",
         "module": "commonjs",
-        "baseUrl": ".",
+        "baseUrl": "./",
         "paths": {
             "*": [
                 "node_modules/*",
                 "types/*"
-            ]
+            ],
+            "@controllers/*": ["src/controllers/*"]
         }
     },
     "include": [
