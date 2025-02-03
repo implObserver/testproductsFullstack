@@ -1,8 +1,13 @@
 {
   "name": "backend",
   "version": "1.0.0",
+  "private": true,
+  "type": "module",
   "main": "index.js",
   "scripts": {
+    "start": "node ./bin/server/server",
+    "devstart": "nodemon ./bin/server/server",
+    "serverstart": "DEBUG=express-locallibrary-tutorial:* npm run devstart",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -10,14 +15,25 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "connect-redis": "^8.0.1",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "express-session": "^1.18.1",
+    "ioredis": "^5.4.2",
+    "morgan": "^1.10.0",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
     "pg": "^8.13.1",
-    "session": "^0.1.0"
+    "redis": "^4.7.0",
+    "session": "^0.1.0",
+    "socket.io": "^4.8.1"
   },
   "devDependencies": {
-    "prisma": "^6.3.0"
+    "eslint": "^9.19.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "prettier": "^3.4.2",
+    "prisma": "^6.3.0",
+    "typescript": "^5.7.3"
   }
 }
