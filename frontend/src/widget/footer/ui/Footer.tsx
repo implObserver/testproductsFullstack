@@ -1,7 +1,7 @@
 export const Footer = () => {
     return (
-        <div>
-
+        <div className="p-[var(--responsive-size)]">
+            Footer
         </div>
     )
 }
