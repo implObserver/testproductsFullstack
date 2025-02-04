@@ -6,11 +6,21 @@ export interface Product {
 }
 
 export interface ProductsPageState {
-    filter: string,
-    sort: string,
+    filter: Filter,
+    sort: Sort,
     page: number,
     offset: number,
     limit: number,
+}
+
+export interface Filter {
+    type: string,
+    name: string,
+}
+
+export interface Sort {
+    type: string,
+    name: string,
 }
 
 export interface ProductResponse {

@@ -1,16 +1,19 @@
 import { prisma } from '../../getClient.js';
 
 const getPaginationProducts = async (offset, limit, filters, orderBy) => {
-  console.log(offset, limit, filters, orderBy)
+  console.log(offset, limit, filters, orderBy);
 
-  /*return prisma.product.findMany({
-    take: 10, // Возвращаем только первые 10 продуктовы
-  });*/
+  // Если filters === 'none', игнорируем фильтрацию
+  const whereClause = filters === 'none' ? {} : filters;
+
+  // Если orderBy === 'none', игнорируем сортировку
+  const orderByClause = orderBy === 'none' ? {} : orderBy;
+
   return prisma.product.findMany({
-    where: filters === 'none' ? undefined : filters, // Если filters === 'none', передаем undefined
-    orderBy: orderBy === 'none' ? undefined : orderBy, // Если orderBy === 'none', передаем undefined
-    skip: offset,
-    take: limit,
+    where: whereClause, // Применяем фильтры, если они есть
+    orderBy: orderByClause, // Применяем сортировку, если она есть
+    skip: offset, // Пропускаем указанное количество записей
+    take: limit, // Ограничиваем количество возвращаемых записей
   });
 };
 

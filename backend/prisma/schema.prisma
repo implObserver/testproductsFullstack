@@ -19,3 +19,8 @@ model Product {
   brand String?
   price Int
 }
+
+model Brand {
+  id Int @id @default(autoincrement())
+  name String
+}

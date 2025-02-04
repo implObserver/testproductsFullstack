@@ -1,6 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { initialState } from "./defaultState";
-import { ProductsPageState } from "../../types/product";
+import { Filter, ProductsPageState } from "../../types/product";
 
 const productsPageSlice = createSlice({
     name: 'products_page',
@@ -16,6 +16,11 @@ const productsPageSlice = createSlice({
         prev: (state: ProductsPageState) => {
             state.page--;
             state.offset--;
+        },
+        setFilter: (state: ProductsPageState, action: PayloadAction<Filter>) => {
+            state.filter = action.payload.name === 'Все брэнды'
+                ? { type: action.payload.type, name: 'none' }
+                : action.payload;
         },
     },
 })

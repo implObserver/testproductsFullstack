@@ -8,11 +8,13 @@ const productApi = $rtkApi.injectEndpoints({
                 const params = new URLSearchParams();
 
                 if (filter) {
-                    params.append('filter', filter);
+                    params.append('filterType', filter.type);
+                    params.append('filterName', filter.name);
                 }
 
                 if (sort) {
-                    params.append('sort', sort);
+                    params.append('sortType', sort.type);
+                    params.append('sortName', sort.name);
                 }
 
                 params.append('page', page.toString());

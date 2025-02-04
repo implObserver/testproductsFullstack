@@ -7,6 +7,8 @@ import styles from './styles/ProductsPaginationContainer.module.css'
 import { useEffect } from "react";
 import { useLazyFetchPaginationProductsQuery } from "@/services/model/product/api/productApi";
 import { ProductContainer } from "@/entities/product";
+import { FilterByBrand } from "@/features/filters/product/byBrand";
+import { FilterByName } from "@/features/filters/product/byName";
 
 export const ProductsPaginationContainer = () => {
     const state = useSelector(selectProductsPageState);
@@ -17,6 +19,7 @@ export const ProductsPaginationContainer = () => {
     const totalPages = data?.totalPages as number;
     const dispatch = useAppDispatch();
     console.log(currentPage)
+
     useEffect(() => {
         fetchProducts(state);
     }, [state])
@@ -43,6 +46,8 @@ export const ProductsPaginationContainer = () => {
 
     return (
         <div className={`${styles.container}`}>
+            <FilterByBrand />
+            <FilterByName />
             <div className={styles.products}>
                 {fill()}
             </div>
