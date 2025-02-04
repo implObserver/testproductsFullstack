@@ -46,8 +46,10 @@ export const ProductsPaginationContainer = () => {
 
     return (
         <div className={`${styles.container}`}>
-            <FilterByBrand />
-            <FilterByName />
+            <div className="flex justify-between">
+                <FilterByBrand />
+                <FilterByName />
+            </div>
             <div className={styles.products}>
                 {fill()}
             </div>
