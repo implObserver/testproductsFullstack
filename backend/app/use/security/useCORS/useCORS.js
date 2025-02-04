@@ -2,13 +2,10 @@ import cors from 'cors';
 import { app } from '../../../app.js';
 
 export const useCORS = () => {
-  const site = '';
+  const site = 'http://localhost:3000';
   const allowedOrigins = [site];
 
-  app.use((req, res, next) => {
-    next();
-  });
-
+  // Middleware для обработки CORS
   app.use(
     cors({
       origin: function (origin, callback) {
@@ -26,9 +23,9 @@ export const useCORS = () => {
     })
   );
 
-  // Важно обрабатывать предзапросы OPTIONS с установленными CORS-заголовками
+  // Обработка OPTIONS-запросов
   app.options('*', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+    res.setHeader('Access-Control-Allow-Origin', req.headers.origin || '*');
     res.setHeader(
       'Access-Control-Allow-Methods',
       'GET,HEAD,PUT,PATCH,POST,DELETE'

@@ -23,7 +23,7 @@ export const buildSorting = (query) => {
 
   return validSortFields.includes(sortBy)
     ? { [sortBy]: validOrders.includes(sortOrder) ? sortOrder : 'asc' }
-    : { createdAt: 'desc' };
+    : { id: 'asc' }; // Изменено с createdAt на id
 };
 
 export const buildPagination = (query) => {

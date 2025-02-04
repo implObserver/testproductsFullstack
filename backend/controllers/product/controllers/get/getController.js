@@ -14,7 +14,7 @@ const get_pagination_products = asyncHandler(async (req, res) => {
   const filters = buildFilters(req.query);
   const orderBy = buildSorting(req.query);
   const { offset, limit } = buildPagination(req.query);
-
+  console.log('ddd')
   try {
     const products = await prismaDB.getPaginationProducts(
       offset,
