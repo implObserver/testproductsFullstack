@@ -12,3 +12,9 @@ export interface ProductsPageState {
     offset: number,
     limit: number,
 }
+
+export interface ProductResponse {
+    products: Product[],
+    totalPages: number,
+    totalProducts: number,
+}

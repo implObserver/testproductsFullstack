@@ -1,9 +1,9 @@
 import { $rtkApi } from "@/services/lib/instances/rtkApi";
-import { Product, ProductsPageState } from "../model/types/product";
+import { Product, ProductResponse, ProductsPageState } from "../model/types/product";
 
 const productApi = $rtkApi.injectEndpoints({
     endpoints: (build) => ({
-        fetchPaginationProducts: build.query<Product[], ProductsPageState>({
+        fetchPaginationProducts: build.query<ProductResponse, ProductsPageState>({
             query: ({ filter, sort, page, limit }) => {
                 const params = new URLSearchParams();
 
@@ -29,4 +29,5 @@ const productApi = $rtkApi.injectEndpoints({
 // Экспортируйте хуки для использования в компонентах
 export const {
     useFetchPaginationProductsQuery,
+    useLazyFetchPaginationProductsQuery,
 } = productApi;

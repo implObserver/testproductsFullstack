@@ -10,9 +10,11 @@ const productsPageSlice = createSlice({
             return initialState;
         },
         next: (state: ProductsPageState) => {
+            state.page++;
             state.offset++;
         },
         prev: (state: ProductsPageState) => {
+            state.page--;
             state.offset--;
         },
     },
