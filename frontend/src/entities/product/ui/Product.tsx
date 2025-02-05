@@ -1,6 +1,7 @@
 'use client';
 
 import { Product } from "@/services/model/product/model/types/product"
+import { Line } from "@/shared/ui/line";
 
 interface ProductProps {
     product: Product,
@@ -12,10 +13,11 @@ export const ProductContainer: React.FC<ProductProps> = ({ product }) => {
         grid
         cursor-pointer
         min-w-[200px]
+        p-2
         w-[calc(var(--responsive-size)*20)] 
         border-2">
-            <div className="grid p-[var(--responsive-size)]">
-                <span className="flex font-[600]">Имя Продукта:</span>
+            <div className="grid">
+                <span className="flex font-[600] text-lg">Имя Продукта:</span>
                 <div className="flex hypens-auto text-lg"
                     style={{
                         wordBreak: "break-word", // Это свойство разрывает длинные слова
@@ -25,12 +27,14 @@ export const ProductContainer: React.FC<ProductProps> = ({ product }) => {
                     {product.name}
                 </div>
             </div>
-            <div className="grid p-[var(--responsive-size)]">
-                <span className="font-[600]">Розничная цена:</span>
+            <Line text=""></Line>
+            <div className="grid">
+                <span className="text-lg font-[600]">Розничная цена:</span>
                 {product.price}
             </div>
-            <div className="grid p-[var(--responsive-size)]">
-                <span className="font-[600]">Брэнд:</span>
+            <Line text=""></Line>
+            <div className="grid">
+                <span className="text-lg font-[600]">Брэнд:</span>
                 {product.brand}
             </div>
         </div>

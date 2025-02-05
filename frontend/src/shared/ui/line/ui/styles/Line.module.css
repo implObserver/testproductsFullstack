@@ -1,0 +1,31 @@
+.recent {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    justify-self: left;
+    width: 100%;
+}
+
+.gap {
+    display: grid;
+    gap: var(--responsive-size);
+}
+
+.recent_name {
+    display: flex;
+    color: var(--color__grey-theme_accent_2);
+    font-size: calc(var(--responsive-size)*2);
+    width: max-content;
+}
+
+.recent_line {
+    display: flex;
+    align-self: center;
+    border-top: 1px rgb(236, 236, 236) solid;
+    
+}
+
+@media (prefers-color-scheme: dark) {
+    .recent_line {
+        border-top: 1px var(--color__dark-theme_accent) solid;
+    }
+}
