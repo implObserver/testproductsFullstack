@@ -48,7 +48,7 @@ export const ProductsPaginationContainer = () => {
 
     return (
         <div className={`${styles.container}`}>
-            <div className="flex justify-between pl-[calc(var(--responsive-size)*8)]">
+            <div className="flex justify-between pl-[calc(var(--responsive-size)*10)]">
                 <FilterByBrand />
                 <FilterByName />
             </div>

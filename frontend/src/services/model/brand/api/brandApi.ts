@@ -1,5 +1,4 @@
 import { $rtkApi } from "@/services/lib/instances/rtkApi";
-import { Product, ProductResponse, ProductsPageState } from "../model/types/product";
 
 const brandApi = $rtkApi.injectEndpoints({
     endpoints: (build) => ({
@@ -14,4 +13,4 @@ const brandApi = $rtkApi.injectEndpoints({
 // Экспортируйте хуки для использования в компонентах
 export const {
     useFetchBrandsQuery,
-} = brandApi;
+} =brandApi;
