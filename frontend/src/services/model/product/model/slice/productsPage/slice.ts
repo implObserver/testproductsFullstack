@@ -22,6 +22,9 @@ const productsPageSlice = createSlice({
                 ? { type: action.payload.type, name: 'none' }
                 : action.payload;
         },
+        setPage: (state: ProductsPageState, action: PayloadAction<number>) => {
+            state.page=action.payload;
+        },
     },
 })
 

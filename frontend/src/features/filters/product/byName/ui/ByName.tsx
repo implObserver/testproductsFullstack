@@ -28,7 +28,7 @@ export const FilterByName = () => {
     }
     return (
         <div>
-            <input value={search.getState()} onChange={changeHandler} type="text" placeholder="Поиск по имени" />
+            <input value={search.getState()} onChange={changeHandler} type="text" placeholder="Поиск..." />
         </div>
     )
 }

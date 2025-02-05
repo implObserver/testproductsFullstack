@@ -15,7 +15,7 @@ export const DropDownList: React.FC<DropDownListProps> = ({ title, labels, state
     const fill = () => {
         return labels.map(label => {
             return (
-                <div key={label} className="cursor-pointer" onClick={() => handleClick(label)}>
+                <div key={label} className="bg-white hover:bg-gray-200 cursor-pointer p-[var(--responsive-size)]" onClick={() => handleClick(label)}>
                     {label}
                 </div>
             )
@@ -28,7 +28,7 @@ export const DropDownList: React.FC<DropDownListProps> = ({ title, labels, state
                 <DropdownMenu.DropdownMenuTrigger>
                     {state.getState()}
                 </DropdownMenu.DropdownMenuTrigger>
-                <DropdownMenu.DropdownMenuContent>
+                <DropdownMenu.DropdownMenuContent className="border-2">
                     {fill()}
                 </DropdownMenu.DropdownMenuContent>
             </DropdownMenu.DropdownMenu>

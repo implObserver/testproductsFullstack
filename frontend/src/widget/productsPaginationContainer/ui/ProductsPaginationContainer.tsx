@@ -21,8 +21,10 @@ export const ProductsPaginationContainer = () => {
     console.log(currentPage)
 
     useEffect(() => {
-        fetchProducts(state);
-    }, [state])
+        if (currentPage > totalPages && totalPages > 0) {
+            dispatch(productsPageSliceActions.setPage(1)); // Сброс на 1, если currentPage больше totalPages
+        }
+    }, [currentPage, totalPages, dispatch]);
 
     const loadMorePostsUp = () => {
         if (currentPage < totalPages) {
